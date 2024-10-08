@@ -2,20 +2,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Country {
-    String name;
-    int years;
-    Map<Integer, Emission> yearEmissions;
-    Emission emission;
+    private String name;
+    private Map<Integer, Emission> yearEmissions;
 
-    public Country(String name, int years, Emission emission){
+    public Country(String name, Map<Integer, Emission> yearEmissions){
         this.name = name;
-        this.years = years;
-        this.emission = emission;
+        this.yearEmissions = yearEmissions;
     }
 
-    Map<Integer, Emission> emissions = new HashMap<>();
+    public String getName() {
+        return name;
+    }
 
-    public void addEntry(int years, Emission emission){
-        emissions.put(this.years, this.emission);
+    public Map<Integer, Emission> getEmissions() {
+        return yearEmissions;
     }
 }

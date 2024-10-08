@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -94,4 +95,29 @@ public class PartOneTestCases {
         }
     }
 
+    @Test
+    public void testYearWithHighestEmissions() {
+        // Create the testable Sector object
+        Map<Integer, Double> emissions = new HashMap<>();
+        emissions.put(1970, 2278.8);
+        emissions.put(1971, 2356.43);
+        emissions.put(1972, 2243.3);
+        Sector sector = new Sector("Transport", emissions);
+
+        // Check that the method works as expected
+        assertEquals(1971, Util.getYearWithHighestEmissions(sector));
+    }
+
+    @Test
+    public void testCountryWithHighestEmissions() {
+        // Creating country object
+        Map<Integer, Emission> yearEmissions = new HashMap<>();
+        yearEmissions.put(1972, new Emission(288000.0, 684000.0, 4690000.0));
+        yearEmissions.put(1977, new Emission(291000.0, 744000.0, 7560000.0));
+        yearEmissions.put(1981, new Emission(281000.0, 641000.0, 4870000.0));
+        Country country = new Country("Ghana", yearEmissions);
+
+        // Checking method
+        assertEquals(1977, Util.getYearWithHighestEmissions(country));
+    }
 }

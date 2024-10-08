@@ -13,7 +13,7 @@ public class Emission {
         return co2;
     }
 
-    public double getN2)() {
+    public double getN2O() {
         return n2o;
     }
 
